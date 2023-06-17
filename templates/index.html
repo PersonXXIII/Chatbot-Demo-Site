@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Al-Siraj: An Islamic Chatbot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+            font-family: 'Ubuntu', sans-serif;
+
+            margin: 0;
+            padding: 0;
+            background-image: url('static/images/backgroung-image.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: repeat;
+        }
+
+        #input-box {
+
+            position: relative;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        input[type="text"] {
+            border: none;
+            outline: none;
+            width: calc(100% - 40px);
+            padding-right: 40px;
+            background-color: transparent;
+            color: white;
+        }
+
+        button{
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            color: white;
+        }
+
+        .container-fluid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .row {
+            margin-top: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+
+        #text-above {
+            position: relative;
+            color: rgb(219,184,107);
+            font-size: 43px;
+            font-weight: bold;
+            margin-top: 40px;
+            margin-left: 0px;
+        }
+
+        #text-below {
+            white-space: pre-wrap;
+            position: relative;
+            color: white;
+            font-size: 16px;
+            margin-top: 0px;
+            margin-left: 0px;
+            height: 300px;
+        }
+
+        #text-below-urd {
+            white-space: pre-wrap;
+            position: relative;
+            color: white;
+            font-size: 16px;
+            margin-top: -300px;
+            margin-left: 0px;
+            margin-bottom: 190px;
+            height: 300px;
+
+            font-family: 'Noto Naskh Arabic', serif;
+            direction: rtl;
+        }
+        #text-below01 {
+            position: relative;
+            color: white;
+            font-size: 13px;
+            margin-top: 202px;
+            margin-left: 0px;
+            
+        }
+
+        #response {
+            font-size: 13px;
+            border-right: 2px solid #333;
+            padding-right: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 1s steps(40, end) forwards;
+
+        }
+          
+        @keyframes typing {
+            from {
+              width: 0;
+            }
+            to {
+              width: 100%;
+            }
+        }
+
+        p {
+            text-align:justify;
+            width: 300px;
+            word-wrap: break-word;
+        }
+
+        button img {
+            width: 28px;
+            height: 28px;
+            margin-right: 4px;
+        }
+
+        
+          
+          
+    </style>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+
+            <div id="text-above">
+               Al-Siraj
+            </div><br>
+
+            <div id="input-box">
+                <form method="POST" action="{{ url_for('home') }}">
+                    <label for="user_input"> </label>
+                    <input type="text" name="text-input" id="text-input" placeholder="Enter text here">
+                    <button type="submit"><i src=""></i><img src="static/icons/send icon.png" alt="send"></button>
+                </form>
+            </div>
+
+            <div id="text-below">
+                    {% if chatbot_response %}
+                    <p>{{ chatbot_response }}</p>
+                    {% endif %}
+            </div>
+            <div id="text-below-urd">
+                {% if chatbot_response_urd %}
+                <p>{{ chatbot_response_urd }}</p>
+                {% endif %}
+        </div>
+            <div id="text-below01">
+                <hr>
+                <p><span style="color: rgb(219,184,107); ">Notice:</span> It's only for testing the API. </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
