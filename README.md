@@ -15,6 +15,6 @@ Al-Siraj is an Islamic chatbot. Which is built to handle the queries of Children
 #
 **OTHER USED APIs**<br>
 **Chatbot API:**<br>
-This is API created before, [Chatbot API](https://github.com/PersonXXIII/Chatbot-API). Which can be run on localhost and the url can be pasted in the code.
-**Google Translate API:<br>**
+This is API created before, [Chatbot API](https://github.com/PersonXXIII/Chatbot-API). Which can be run on localhost and the url can be pasted in the code.<br>
+**Google Translate API:**<br>
 To use the API you need a Json key. Which can be obtained from  [Gcloud Platform](https://console.cloud.google.com).
